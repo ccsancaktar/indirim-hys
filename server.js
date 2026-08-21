@@ -153,6 +153,15 @@ app.get("/pesin/sayac", (_req, res) => res.sendFile(path.join(root, "sayac.html"
 app.get("/pesinfiyat", trackedCatalog("pesinfiyat.html", "daily_pesinfiyat_visitors"));
 app.get("/pesinfiyat/sayac", (_req, res) => res.sendFile(path.join(root, "sayac.html")));
 
+const categoryCatalogs = ["beyaz", "evteks", "giyim", "kea", "mobilya", "ybb", "zuccaciye"];
+for (const category of categoryCatalogs) {
+  app.get(`/${category}`, (req, res, next) => {
+    if (req.path.endsWith("/")) return next();
+    res.redirect(308, `/${category}/`);
+  });
+  app.use(`/${category}`, express.static(path.join(root, category)));
+}
+
 app.get("/health", (_req, res) => res.send("ok"));
 
 prepareDatabase()

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f36b21">
+  <title>HYS AVM | Kampanya Kataloğu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#">
+      <div class="brand-mark">hys</div>
+      <div class="brand-tag">eviniz için<br>her şey</div>
+    </a>
+    <div class="header-actions">
+      <a class="header-btn ghost" href="#magazalar">Mağazalar</a>
+      <button class="header-btn primary" id="openWhatsAppTop">WhatsApp</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="intro-simple">
+    <span class="eyebrow">HYS AVM KAMPANYA KATALOĞU</span>
+    <h1>Güncel kampanyaları keşfedin.</h1>
+    <p>Sayfalar arasında geçiş yaparak kampanyaları inceleyebilir, en yakın mağazaya kolayca ulaşabilirsiniz.</p>
+  </section>
+
+  <section class="catalog-wrap" id="katalog">
+    <div class="catalog-toolbar">
+      <div>
+        <h2>Kampanya Kataloğu</h2>
+        <p id="pageCountLabel"></p>
+      </div>
+      <div class="toolbar-actions">
+        <button id="fullscreenBtn" class="icon-btn">Tam Ekran</button>
+      </div>
+    </div>
+
+    <div class="book-panel">
+      <button class="nav-arrow prev" id="prevBtn" aria-label="Önceki sayfa">‹</button>
+      <div class="book" id="book"></div>
+      <button class="nav-arrow next" id="nextBtn" aria-label="Sonraki sayfa">›</button>
+    </div>
+
+    <div class="pager">
+      <button id="prevMini">←</button>
+      <span id="pageLabel"></span>
+      <button id="nextMini">→</button>
+    </div>
+    <div class="thumb-strip" id="thumbStrip"></div>
+  </section>
+
+  <section class="store-section" id="magazalar">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">MAĞAZALARIMIZ</span>
+        <h2>Size en yakın HYS mağazasını bulun</h2>
+      </div>
+      <p>Adres bilgilerini inceleyin, haritada görüntüleyin veya doğrudan yol tarifi alın.</p>
+    </div>
+
+    <div class="stores-grid">
+      <article class="store-card">
+        <div class="store-title-row">
+          <div class="pin-box">⌖</div>
+          <div><h3>Yıldırım HYS Mağazası</h3><span class="new-badge">YENİ</span></div>
+        </div>
+        <div class="divider"></div>
+        <div class="store-info">
+          <div class="info-row"><span class="ico">⌖</span><span>11 Eylül Bulvarı, Barış Cad. No:11 - Yıldırım, 16250 Osmangazi/Bursa</span></div>
+          <div class="info-row"><span class="ico">◷</span><span><strong>Pzt – Paz</strong>&nbsp;&nbsp;10:00 – 20:00</span></div>
+          <div class="info-row"><span class="ico">☎</span><a href="tel:4440992">444 0 992</a></div>
+        </div>
+        <div class="store-actions">
+          <a class="store-btn light" target="_blank" href="https://www.google.com/maps/search/?api=1&query=11+Eyl%C3%BCl+Bulvar%C4%B1+Bar%C4%B1%C5%9F+Cad.+No%3A11+Bursa">Haritada göster</a>
+          <a class="store-btn dark" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=11+Eyl%C3%BCl+Bulvar%C4%B1+Bar%C4%B1%C5%9F+Cad.+No%3A11+Bursa">● Yol tarifi</a>
+        </div>
+      </article>
+
+      <article class="store-card">
+        <div class="store-title-row">
+          <div class="pin-box">⌖</div>
+          <div><h3>Nilüfer HYS Mağazası</h3></div>
+        </div>
+        <div class="divider"></div>
+        <div class="store-info">
+          <div class="info-row"><span class="ico">⌖</span><span>İzmir Yolu Cd. No:156/1 Nilüfer/Bursa</span></div>
+          <div class="info-row"><span class="ico">◷</span><span><strong>Pzt – Paz</strong>&nbsp;&nbsp;09:00 – 21:00</span></div>
+          <div class="info-row"><span class="ico">☎</span><a href="tel:4440992">444 0 992</a></div>
+        </div>
+        <div class="store-actions">
+          <a class="store-btn light" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%C4%B0zmir+Yolu+Cd.+No%3A156%2F1+Nil%C3%BCfer+Bursa">Haritada göster</a>
+          <a class="store-btn dark" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=%C4%B0zmir+Yolu+Cd.+No%3A156%2F1+Nil%C3%BCfer+Bursa">● Yol tarifi</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<button class="whatsapp-float" id="openWhatsAppFloat">WhatsApp</button>
+
+<div class="wa-modal" id="waModal" aria-hidden="true">
+  <div class="wa-card">
+    <button class="wa-close" id="waClose">×</button>
+    <span class="eyebrow">WHATSAPP DESTEK</span>
+    <h3>HYS AVM ile iletişime geçin</h3>
+    <p>Ürün, fiyat, stok ve mağaza bilgisi için WhatsApp üzerinden bize yazabilirsiniz.</p>
+    <div id="waMissing" class="wa-warning" hidden>WhatsApp numarası config.js dosyasında tanımlanmalı.</div>
+    <a id="waGo" class="wa-go" href="#" target="_blank">WhatsApp'ı Aç</a>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
